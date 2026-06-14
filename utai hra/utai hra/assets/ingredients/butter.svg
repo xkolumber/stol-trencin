@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Maslo">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <path d="M30 66 74 42l25 20-45 25-24-21Z" fill="#fde68a"/>
+  <path d="m54 87 45-25v23l-45 25V87Z" fill="#fbbf24"/>
+  <path d="M30 66 54 87v23L30 89V66Z" fill="#f59e0b"/>
+  <path d="m43 64 38-20" stroke="#fff7c2" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+</svg>

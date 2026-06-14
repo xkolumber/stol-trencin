@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Lekvar">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <path d="M39 44h50l-5 62H44l-5-62Z" fill="#8b1e3f"/>
+  <path d="M37 36h54v14H37z" fill="#d6a45d"/>
+  <path d="M45 61h38v25H45z" fill="#fff7e8"/>
+  <path d="M53 74h22" stroke="#8b1e3f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="51" cy="54" r="5" fill="#be123c"/>
+  <circle cx="75" cy="56" r="4" fill="#be123c"/>
+</svg>

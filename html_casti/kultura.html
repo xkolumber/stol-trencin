@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kultúra</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .panel {
+        width: 95%;
+        height: 95%;
+        border-radius: 24px;
+        border: 11.29px solid rgba(30, 90, 129, 0.25);
+        background: #fff;
+        box-shadow: 0 1.806px 22.573px 0 rgba(30, 90, 129, 0.5);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 0 25px 25px 25px;
+      }
+      .header {
+        height: 110px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header_first {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+      .title {
+        font-size: 48px;
+        font-weight: bold;
+        font-family: Georgia, serif;
+        color: #1e5a81;
+      }
+      .circle-btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(30, 90, 129, 0.15);
+        color: #1e5a81;
+        font-size: 34px;
+        cursor: pointer;
+      }
+      .tabs {
+        display: flex;
+        height: 70px;
+        border: 1px solid #1e5a81;
+        background: rgba(30, 90, 129, 0.05);
+        border-radius: 16px;
+        flex-shrink: 0;
+      }
+      .btn {
+        padding: 21.5px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: none;
+      }
+      .tab {
+        flex: 1;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: #1e5a81;
+      }
+      .tab.active {
+        background: #1e5a81;
+        color: white;
+      }
+      .content {
+        flex: 1;
+        overflow: hidden;
+      }
+      .page {
+        display: none;
+        height: 100%;
+      }
+      .page.active {
+        display: block;
+      }
+      .text-container {
+        height: 100%;
+        overflow-y: auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+      .text-container h2 {
+        margin-bottom: 20px;
+      }
+      .text-container p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+      .gallery {
+        height: 100%;
+        padding-top: 25px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        overflow-y: auto;
+        padding-right: 5px;
+        padding-bottom: 25px;
+        height: 100%;
+      }
+      .grid img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 18px;
+        cursor: pointer;
+      }
+      .gallery-detail {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .gallery-detail.active {
+        display: flex;
+      }
+      .image-wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        background: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .image-wrapper img {
+        max-height: 42vh;
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+        object-fit: cover;
+      }
+      .image-inner-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid #1e5a81;
+        background: white;
+        color: #1e5a81;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+      }
+      .image-info-layout {
+        margin-top: 15px;
+        color: #1e5a81;
+        font-size: 20px;
+        font-family: Arial, sans-serif;
+        flex-shrink: 0;
+      }
+      .info-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .info-author {
+        font-size: 22px;
+      }
+      .info-artwork {
+        font-size: 22px;
+        text-align: right;
+      }
+      .info-meta-row {
+        font-size: 18px;
+        color: #5d8199;
+      }
+      .slider-footer {
+        margin-top: 15px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .footer-arrow {
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(30, 90, 129, 0.1);
+        color: #1e5a81;
+        font-size: 26px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #dots {
+        display: flex;
+        gap: 10px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #c8d2db;
+        transition: background 0.2s ease;
+      }
+      .dot.active {
+        background: #1e5a81;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <div class="header_first">
+          <div class="title">Kultúra</div>
+        </div>
+        <button class="circle-btn" onclick="closePanel()">✕</button>
+      </div>
+
+      <div class="tabs">
+        <button id="tabText" class="tab active btn" onclick="showPage('text')">
+          Miloš Alexander Bazovský
+        </button>
+        <button id="tabGallery" class="tab btn" onclick="showPage('gallery')">
+          Galéria
+        </button>
+      </div>
+
+      <div class="content">
+        <div id="textPage" class="page active">
+          <div class="text-container">
+            <h2>Výber diel Miloša Alexandra Bazovského</h2>
+            <p>
+              (1899 – 1968) predstavuje pohľad na tvorbu jedného z
+              najvýznamnejších predstaviteľov slovenskej moderny. Bazovský bol
+              známy svojím osobitým maliarskym prejavom, výrazovou skratkou a
+              hlbokým záujmom o slovenský vidiek. <br /><br />
+              Vybrané diela z aktuálnej expozície približujú jeho prínos k
+              formovaniu moderného výtvarného jazyka na Slovensku. Jeho tvorba
+              prepája tradíciu s modernistickými tendenciami a je ľahko
+              rozpoznateľná. <br /><br />
+              Krajina, človek a dedinské prostredie patria medzi najčastejšie
+              motívy jeho tvorby. Jeho obrazy sú dodnes významnou súčasťou
+              slovenského kultúrneho dedičstva. <br /><br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+              turpis at risus laoreet suscipit. Integer nec erat eu odio viverra
+              ultrices. Praesent volutpat erat vitae ligula luctus, nec ultrices
+              sapien luctus.
+            </p>
+          </div>
+        </div>
+
+        <div id="galleryPage" class="page">
+          <div class="gallery">
+            <div id="galleryGrid" class="grid"></div>
+
+            <div id="galleryDetail" class="gallery-detail">
+              <div class="image-wrapper">
+                <button class="image-inner-close" onclick="closeImage()">
+                  ✕
+                </button>
+                <img id="modalImage" alt="Dielo" />
+              </div>
+
+              <div class="image-info-layout">
+                <div class="info-top-row">
+                  <div class="info-author" id="imageTitle"></div>
+                  <div class="info-artwork" id="imageArtwork"></div>
+                </div>
+                <div class="info-meta-row" id="imageMeta"></div>
+              </div>
+
+              <div class="slider-footer">
+                <button class="footer-arrow" onclick="prevImage()">←</button>
+                <div id="dots"></div>
+                <button class="footer-arrow" onclick="nextImage()">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const galleryImages = [
+        {
+          src: "https://picsum.photos/400?1",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Stará vŕba",
+          meta: "1954 / olej / výška 43.0 cm, šírka 30.0 cm",
+        },
+        {
+          src: "https://picsum.photos/400?2",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Krajina s kopcom",
+          meta: "1952 / olej / výška 35.0 cm, šírka 45.0 cm",
+        },
+        {
+          src: "https://picsum.photos/400?3",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Slovenská dedina",
+          meta: "1956 / olej / výška 40.0 cm, šírka 50.0 cm",
+        },
+        {
+          src: "https://picsum.photos/400?4",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Ženy pri práci",
+          meta: "1950 / olej / výška 42.0 cm, šírka 32.0 cm",
+        },
+        {
+          src: "https://picsum.photos/400?5",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Pred chalupou",
+          meta: "1958 / olej / výška 30.0 cm, šírka 40.0 cm",
+        },
+        {
+          src: "https://picsum.photos/400?6",
+          title: "Bazovský, Miloš Alexander",
+          artwork: "Zimný motív",
+          meta: "1953 / olej / výška 38.0 cm, šírka 48.0 cm",
+        },
+      ];
+
+      let currentImage = 0;
+
+      function generateGrid() {
+        const grid = document.getElementById("galleryGrid");
+        let html = "";
+        galleryImages.forEach((item, index) => {
+          html += `<img src="${item.src}" alt="${item.artwork}" onclick="openImage(${index})" />`;
+        });
+        grid.innerHTML = html;
+      }
+
+      function showPage(page) {
+        document.getElementById("textPage").classList.remove("active");
+        document.getElementById("galleryPage").classList.remove("active");
+        document.getElementById("tabText").classList.remove("active");
+        document.getElementById("tabGallery").classList.remove("active");
+
+        if (page === "text") {
+          document.getElementById("textPage").classList.add("active");
+          document.getElementById("tabText").classList.add("active");
+        }
+        if (page === "gallery") {
+          document.getElementById("galleryPage").classList.add("active");
+          document.getElementById("tabGallery").classList.add("active");
+          closeImage();
+        }
+      }
+
+      function closePanel() {
+        window.close();
+      }
+
+      function openImage(index) {
+        currentImage = index;
+        renderImage();
+        document.getElementById("galleryGrid").style.display = "none";
+        document.getElementById("galleryDetail").classList.add("active");
+      }
+
+      function closeImage() {
+        document.getElementById("galleryGrid").style.display = "grid";
+        document.getElementById("galleryDetail").classList.remove("active");
+      }
+
+      function renderImage() {
+        const item = galleryImages[currentImage];
+
+        document.getElementById("modalImage").src = item.src;
+        document.getElementById("imageTitle").innerHTML = item.title;
+        document.getElementById("imageArtwork").innerHTML = item.artwork;
+        document.getElementById("imageMeta").innerHTML = item.meta;
+
+        let dots = "";
+        galleryImages.forEach((x, i) => {
+          dots += `<div class="dot ${i === currentImage ? "active" : ""}"></div>`;
+        });
+        document.getElementById("dots").innerHTML = dots;
+      }
+
+      function nextImage() {
+        currentImage++;
+        if (currentImage >= galleryImages.length) currentImage = 0;
+        renderImage();
+      }
+
+      function prevImage() {
+        currentImage--;
+        if (currentImage < 0) currentImage = galleryImages.length - 1;
+        renderImage();
+      }
+
+      generateGrid();
+    </script>
+  </body>
+</html>

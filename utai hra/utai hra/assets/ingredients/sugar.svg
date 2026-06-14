@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Cukor">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <path d="M39 62 64 47l25 15v30L64 107 39 92V62Z" fill="#ffffff"/>
+  <path d="M64 47v30l25-15M64 77 39 62M64 77v30" fill="none" stroke="#dbe4ee" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#ffffff">
+    <circle cx="35" cy="38" r="4"/>
+    <circle cx="85" cy="35" r="3"/>
+    <circle cx="95" cy="48" r="2.5"/>
+  </g>
+</svg>
