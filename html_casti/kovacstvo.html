@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Kováčstvo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Raleway", sans-serif;
+      }
+      .panel {
+        width: 95%;
+        height: 95%;
+        border-radius: 24px;
+        border: 11.29px solid rgba(30, 90, 129, 0.25);
+        background: #fff;
+        box-shadow: 0 1.806px 22.573px 0 rgba(30, 90, 129, 0.5);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 0 25px 25px 25px;
+      }
+      .header {
+        height: 110px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header_first {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+      .img_header {
+        width: 60px;
+        height: 60px;
+      }
+      .title {
+        font-size: 48px;
+        font-weight: bold;
+        font-family: "Playfair Display", serif;
+        color: #1e5a81;
+      }
+      .circle-btn {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(30, 90, 129, 0.15);
+        color: #1e5a81;
+        font-size: 34px;
+        cursor: pointer;
+      }
+      .tabs {
+        display: flex;
+        height: 70px;
+        border: 1px solid #1e5a81;
+        background: rgba(30, 90, 129, 0.05);
+        border-radius: 16px;
+        flex-shrink: 0;
+      }
+      .btn {
+        padding: 21.5px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: none;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+      }
+      .btn_icon {
+        width: 36px;
+        height: 36px;
+      }
+      .tab {
+        flex: 1;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: #1e5a81;
+      }
+      .tab.active {
+        background: #1e5a81;
+        color: white;
+      }
+      .content {
+        flex: 1;
+        overflow: hidden;
+      }
+      .page {
+        display: none;
+        height: 100%;
+      }
+      .page.active {
+        display: block;
+      }
+      .text-container {
+        height: 100%;
+        overflow-y: auto;
+        margin-top: 24px;
+        padding-bottom: 24px;
+        padding-right: 24px;
+      }
+      .text-container h2 {
+        margin-bottom: 20px;
+      }
+      .text-container p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+      .gallery {
+        height: 100%;
+        padding-top: 25px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        overflow-y: auto;
+        padding-right: 5px;
+        padding-bottom: 25px;
+        height: 100%;
+      }
+      .grid img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 18px;
+        cursor: pointer;
+      }
+      .gallery-detail {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .gallery-detail.active {
+        display: flex;
+      }
+      .image-wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        background: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .image-wrapper img {
+        max-height: 42vh;
+        /* width: 100%; */
+        height: auto;
+        border-radius: 24px;
+        object-fit: cover;
+      }
+      .image-inner-close {
+        position: absolute;
+        top: 4px;
+        right: 0px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid #1e5a81;
+        background: white;
+        color: #1e5a81;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+      }
+      .image-info-layout {
+        margin-top: 15px;
+        color: #1e5a81;
+        font-size: 20px;
+        font-family: Arial, sans-serif;
+        flex-shrink: 0;
+      }
+      .info-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .info-author {
+        font-size: 22px;
+      }
+      .info-artwork {
+        font-size: 22px;
+        text-align: right;
+      }
+      .info-meta-row {
+        font-size: 18px;
+        color: #5d8199;
+      }
+      .slider-footer {
+        margin-top: 15px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .footer-arrow {
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(30, 90, 129, 0.1);
+        color: #1e5a81;
+        font-size: 26px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #dots {
+        display: flex;
+        gap: 10px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #c8d2db;
+        transition: background 0.2s ease;
+      }
+      .dot.active {
+        background: #1e5a81;
+      }
+      .tab .btn_icon {
+        filter: none;
+      }
+
+      .tab.active .btn_icon {
+        filter: brightness(0) invert(1);
+      }
+      .three_img {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+      .three_img img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <div class="header_first">
+          <img class="img_header" src="../images/kovacstvo_icon.svg" />
+          <div class="title">Kováčstvo</div>
+        </div>
+        <button class="circle-btn" onclick="closePanel()">✕</button>
+      </div>
+
+      <div class="tabs">
+        <button id="tabText" class="tab active btn" onclick="showPage('text')">
+          <img class="btn_icon" src="../images/list_icon.svg" />
+        </button>
+
+        <button id="tabText2" class="tab btn" onclick="showPage('text2')">
+          <img class="btn_icon" src="../images/question_icon.svg" />
+        </button>
+        <button id="tabText3" class="tab btn" onclick="showPage('text3')">
+          <img class="btn_icon" src="../images/kocka_icon.svg" />
+        </button>
+      </div>
+
+      <div class="content">
+        <div id="textPage" class="page active">
+          <div class="text-container">
+            <h2>
+              “Rozžeravený kov, iskry a rytmické údery kladiva – kováčstvo je
+              remeslo, kde sa z ohňa rodia nástroje aj umelecké diela.”
+            </h2>
+            <p>
+              Kováčstvo patrí medzi tradičné remeslá Trenčianskeho kraja a bolo
+              neoddeliteľnou súčasťou každodenného života.
+            </p>
+
+            <div class="three_img">
+              <img class="" src="../images/cipkarstvo/1.png" />
+              <img class="" src="../images/cipkarstvo/2.png" />
+              <img class="" src="../images/cipkarstvo/3.png" />
+            </div>
+
+            <p>
+              Kováčstvo sa zameriava na spracovanie kovu za vysokej teploty,
+              najčastejšie jeho zahrievaním v ohni a následným tvarovaním údermi
+              kladiva na nákove. Vznikajú pri ňom praktické aj dekoratívne
+              predmety. Kováči vyrábali a opravovali nástroje potrebné pre
+              poľnohospodárstvo a remeslá, ako aj podkovy, kovové súčiastky či
+              rôzne úžitkové predmety pre domácnosť. Ich práca bola nevyhnutná
+              pre fungovanie každodenného života v obciach. Okrem úžitkových
+              predmetov vznikali aj ozdobné prvky, ako sú kované brány, mreže,
+              zábradlia či dekorácie, ktoré dodnes zdobia historické aj súčasné
+              stavby. Kováčstvo tak spája funkčnosť s estetikou a predstavuje
+              významnú súčasť remeselnej tradície regiónu.
+            </p>
+          </div>
+        </div>
+
+        <div id="text2Page" class="page">
+          <div class="text-container">
+            <p>
+              Kováč bol v minulosti jedným z najváženejších remeselníkov v obci,
+              pretože jeho práca bola nevyhnutná pre fungovanie každodenného
+              života.
+            </p>
+          </div>
+        </div>
+        <div id="text3Page" class="page">
+          <div class="text-container">
+            <p>hra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showPage(page) {
+        const textPage = document.getElementById("textPage");
+        const text2Page = document.getElementById("text2Page");
+        const text3Page = document.getElementById("text3Page");
+
+        const tabText = document.getElementById("tabText");
+        const tabText2 = document.getElementById("tabText2");
+        const tabText3 = document.getElementById("tabText3");
+
+        textPage.classList.remove("active");
+        text2Page.classList.remove("active");
+        text3Page.classList.remove("active");
+
+        tabText.classList.remove("active");
+        tabText2.classList.remove("active");
+        tabText3.classList.remove("active");
+
+        if (page === "text") {
+          textPage.classList.add("active");
+          tabText.classList.add("active");
+        }
+
+        if (page === "text2") {
+          text2Page.classList.add("active");
+          tabText2.classList.add("active");
+        }
+        if (page === "text3") {
+          text3Page.classList.add("active");
+          tabText3.classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>
