@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Struhanka">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <path d="M35 49c9-18 47-18 58 0v45H35V49Z" fill="#d59a48"/>
+  <path d="M39 51c11-10 39-10 50 0" fill="none" stroke="#f8c471" stroke-width="9" stroke-linecap="round"/>
+  <g fill="#8a5a2b">
+    <circle cx="48" cy="69" r="3"/>
+    <circle cx="64" cy="61" r="2.5"/>
+    <circle cx="81" cy="74" r="3"/>
+    <circle cx="56" cy="86" r="2.5"/>
+    <circle cx="74" cy="91" r="2"/>
+  </g>
+</svg>

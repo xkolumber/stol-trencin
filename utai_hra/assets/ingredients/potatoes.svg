@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Zemiaky">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <ellipse cx="48" cy="72" rx="26" ry="34" fill="#b98545" transform="rotate(-18 48 72)"/>
+  <ellipse cx="78" cy="62" rx="28" ry="36" fill="#c99655" transform="rotate(19 78 62)"/>
+  <ellipse cx="66" cy="84" rx="24" ry="29" fill="#a8753c" transform="rotate(9 66 84)"/>
+  <g fill="#6b4424" opacity=".55">
+    <circle cx="39" cy="64" r="3"/>
+    <circle cx="53" cy="82" r="2.5"/>
+    <circle cx="81" cy="50" r="3"/>
+    <circle cx="92" cy="74" r="2.5"/>
+    <circle cx="63" cy="91" r="3"/>
+  </g>
+</svg>

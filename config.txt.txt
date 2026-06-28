@@ -1,0 +1,42 @@
+/* The config.txt configuration file enables touch-enabled applications to receive                 */
+/* tracking data from your video wall.                                                             */
+
+/* NativeTouch enables Cornerstone applications to use OS tracking data. That is, it enables       */
+/* Cornerstone applications to receive Windows, Linux or OS X touch events.                        */
+/* You use NativeTouch if you display MultiTaction applications on third-party screens.            */
+/* Typically, you comment out the NativeTouch block if you display MultiTaction applications       */
+/* on MultiTaction Cells.                                                                          */
+
+NativeTouch {
+}
+
+/* NetBridge settings provides the application computer with the network address of each Cell's    */
+/* tracking engine. You must include one NetBridge block for each Cell in your video wall.         */
+/* The NetBridge settings enable Cornerstone to combine and transform streams of tracking data     */
+/* received from multiple Cells into a single coordinate system that matches the physical layout   */
+/* of the screens ie, the Cell topology.                                                           */
+
+/* Below is an example configuration for a single MultiTaction Cell with IP address 10.20.30.40.   */
+/* The Cell is in portrait mode and is the second Cell in a video wall when viewed from the front. */
+
+/* "input-translate" specifies pixel adjustments to the x and y tracking data coordinates.         */
+/* This example specifies a 1080 pixel shift to the x coordinate. This is a                        */
+/* typical shift for the second Cell in a video wall of Cells in portrait mode.                    */
+
+/* "input-rotate" specifies a degrees-of-rotation adjustment to tracking data coordinates.         */
+/* By default, Cornerstone assumes Cells are deployed in landscape mode. You must                  */
+/* therefore apply a +90 degree rotation to tracking data from Cells in portrait mode.             */
+
+/* "input-scale" specifies a scaling adjustment to the x and y tracking data coordinates.          */
+/* You may want to do this for testing purposes while developing a touch-enabled app.              */
+/* Or you may need to scale the incoming tracking data if you change the display resolution.       */
+
+/*
+NetBridge {
+  host = "10.20.30.40"
+
+  input-translate = "1080 0"
+  input-rotate = "90"
+  input-scale = "1 1"
+}
+*/

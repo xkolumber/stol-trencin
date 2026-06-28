@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="Hotove perky na tanieri">
+  <rect width="320" height="220" rx="24" fill="#241f1b"/>
+  <ellipse cx="160" cy="124" rx="124" ry="66" fill="#f8fafc"/>
+  <ellipse cx="160" cy="124" rx="96" ry="48" fill="#dbeafe"/>
+  <ellipse cx="160" cy="128" rx="78" ry="34" fill="#fff7ed"/>
+  <g stroke="#d97706" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M96 104c23-23 47-23 70 0-22 25-48 25-70 0Z" fill="#f6d7a7"/>
+    <path d="M140 98c22-22 46-22 68 0-21 24-47 24-68 0Z" fill="#f1c27d"/>
+    <path d="M120 135c23-22 48-22 71 0-23 25-49 25-71 0Z" fill="#f7d9a8"/>
+    <path d="M172 130c23-22 47-22 70 0-22 25-48 25-70 0Z" fill="#efc078"/>
+  </g>
+  <g fill="#8b1e3f">
+    <circle cx="130" cy="106" r="5"/>
+    <circle cx="170" cy="98" r="4"/>
+    <circle cx="154" cy="136" r="5"/>
+    <circle cx="204" cy="130" r="4"/>
+  </g>
+  <g fill="#f8fafc" opacity=".95">
+    <circle cx="95" cy="77" r="3"/>
+    <circle cx="118" cy="69" r="2.5"/>
+    <circle cx="205" cy="78" r="3"/>
+    <circle cx="226" cy="88" r="2.5"/>
+    <circle cx="146" cy="72" r="2"/>
+  </g>
+  <g fill="#d59a48">
+    <circle cx="105" cy="128" r="3"/>
+    <circle cx="188" cy="111" r="3"/>
+    <circle cx="219" cy="143" r="2.5"/>
+    <circle cx="149" cy="158" r="2.5"/>
+    <circle cx="132" cy="122" r="2"/>
+  </g>
+  <path d="M92 168c38 22 101 23 139 0" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+</svg>

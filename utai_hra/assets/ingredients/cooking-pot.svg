@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-label="Hrniec na varenie">
+  <rect width="360" height="240" rx="24" fill="#241f1b"/>
+  <ellipse cx="180" cy="75" rx="132" ry="36" fill="#cbd5e1"/>
+  <path d="M60 74h240l-22 116c-5 24-190 24-196 0L60 74Z" fill="#475569"/>
+  <ellipse cx="180" cy="74" rx="115" ry="26" fill="#93c5fd"/>
+  <ellipse cx="180" cy="74" rx="92" ry="18" fill="#38bdf8" opacity=".72"/>
+  <path d="M57 96H25c-10 0-10 38 0 38h40M303 96h32c10 0 10 38 0 38h-40" fill="none" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M92 112c42 18 134 18 176 0" fill="none" stroke="#e0f2fe" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+</svg>

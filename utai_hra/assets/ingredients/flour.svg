@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Muka">
+  <rect width="128" height="128" rx="22" fill="#f7e1bd"/>
+  <path d="M36 39h56l7 61H29l7-61Z" fill="#fff7e8"/>
+  <path d="M42 29h44l6 14H36l6-14Z" fill="#d6a45d"/>
+  <path d="M45 57h38v25H45z" fill="#f1c36f"/>
+  <path d="M51 64h26M51 73h20" stroke="#8a5a2b" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="33" cy="101" r="6" fill="#fff7e8" opacity=".8"/>
+  <circle cx="92" cy="104" r="5" fill="#fff7e8" opacity=".8"/>
+</svg>

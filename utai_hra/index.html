@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kovacstvo hry</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar" aria-label="Kovacstvo hry">
+        <div>
+          <p class="eyebrow">Web view</p>
+          <h1>Kovacstvo</h1>
+        </div>
+        <button id="new-game" class="primary" type="button">Nova hra</button>
+      </section>
+
+      <section class="game-tabs" aria-label="Vyber hry">
+        <button class="game-tab is-active" type="button" data-game="memory">1. Pexeso</button>
+        <button class="game-tab" type="button" data-game="process">2. Proces</button>
+        <button class="game-tab" type="button" data-game="ingredients">3. Perky</button>
+      </section>
+
+      <section id="memory-game" class="game-panel">
+        <section class="stats" aria-label="Statistiky pexesa">
+          <div class="stat">
+            <span>Tahy</span>
+            <strong id="moves">0</strong>
+          </div>
+          <div class="stat">
+            <span>Najdene</span>
+            <strong><span id="matches">0</span>/<span id="pair-total">8</span></strong>
+          </div>
+          <div class="stat">
+            <span>Cas</span>
+            <strong id="timer">00:00</strong>
+          </div>
+        </section>
+
+        <section class="size-picker" aria-label="Velkost pexesa">
+          <button class="size-option" type="button" data-card-count="8">8</button>
+          <button class="size-option is-active" type="button" data-card-count="16">16</button>
+          <button class="size-option" type="button" data-card-count="32">32</button>
+        </section>
+
+        <section id="game-board" class="board" aria-label="Hracia plocha pexesa"></section>
+      </section>
+
+      <section id="process-game" class="game-panel" hidden>
+        <section class="process-header" aria-label="Zadanie procesu">
+          <div>
+            <p class="eyebrow">Zorad proces</p>
+            <h2>Vyroba kovanej podkovy</h2>
+          </div>
+          <strong id="process-score">0/6</strong>
+        </section>
+
+        <section class="process-layout" aria-label="Skladanie procesu">
+          <div>
+            <p class="column-title">Kroky</p>
+            <section id="process-bank" class="process-bank" aria-label="Kroky na vlozenie"></section>
+          </div>
+
+          <div>
+            <p class="column-title">Okienka procesu</p>
+            <section id="process-list" class="process-list" aria-label="Okienka procesu"></section>
+          </div>
+        </section>
+
+        <section class="process-actions" aria-label="Ovladanie procesu">
+          <button id="check-process" class="primary" type="button">Skontrolovat</button>
+          <button id="reset-process" class="secondary" type="button">Premiesat</button>
+        </section>
+
+        <p id="process-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section id="ingredients-game" class="game-panel" hidden>
+        <section class="ingredients-header" aria-label="Zadanie receptu">
+          <div>
+            <p class="eyebrow">Drag & drop</p>
+            <h2>Uvar tradicne slovenske perky</h2>
+          </div>
+          <div class="recipe-status" aria-label="Stav receptu">
+            <span id="recipe-round">1/3</span>
+            <strong id="recipe-timer">12.0</strong>
+          </div>
+        </section>
+
+        <section class="recipe-board" aria-label="Skladanie receptu">
+          <section class="recipe-card" aria-label="Aktualny recept">
+            <p class="column-title">Recept</p>
+            <h3 id="recipe-name">Zemiakove cesto</h3>
+            <p id="recipe-instruction" class="recipe-instruction"></p>
+            <div id="recipe-targets" class="recipe-targets" aria-label="Potrebne ingrediencie"></div>
+            <div class="timing-track" aria-label="Cas do konca kola">
+              <span id="timing-fill"></span>
+            </div>
+          </section>
+
+          <section class="mixing-zone" aria-label="Miska na miesanie">
+            <p class="column-title">Misa</p>
+            <div id="mixing-bowl" class="mixing-bowl">
+              <span class="steam steam-one" aria-hidden="true"></span>
+              <span class="steam steam-two" aria-hidden="true"></span>
+              <span class="steam steam-three" aria-hidden="true"></span>
+              <span class="bubble bubble-one" aria-hidden="true"></span>
+              <span class="bubble bubble-two" aria-hidden="true"></span>
+              <span class="bubble bubble-three" aria-hidden="true"></span>
+              <span class="cooking-surface" aria-hidden="true"></span>
+              <span class="stir-line stir-one" aria-hidden="true"></span>
+              <span class="stir-line stir-two" aria-hidden="true"></span>
+              <div id="stage-product" class="stage-product stage-board" aria-hidden="true">
+                <img class="scene-image scene-board" src="assets/ingredients/cutting-board.svg" alt="" />
+                <img class="scene-image scene-pot" src="assets/ingredients/cooking-pot.svg" alt="" />
+                <img class="scene-image scene-plate" src="assets/ingredients/plate-empty.svg" alt="" />
+                <span class="rolling-pin"></span>
+                <span class="knife"></span>
+                <span class="dough-shape"></span>
+                <span class="dough-piece piece-one"></span>
+                <span class="dough-piece piece-two"></span>
+                <span class="dough-piece piece-three"></span>
+                <span class="jam-dot jam-one"></span>
+                <span class="jam-dot jam-two"></span>
+                <span class="jam-dot jam-three"></span>
+                <span class="press press-one"></span>
+                <span class="press press-two"></span>
+                <span class="press press-three"></span>
+                <span class="perky-piece perky-one"></span>
+                <span class="perky-piece perky-two"></span>
+                <span class="perky-piece perky-three"></span>
+                <span class="strainer"></span>
+                <span class="sprinkle sprinkle-one"></span>
+                <span class="sprinkle sprinkle-two"></span>
+                <span class="sprinkle sprinkle-three"></span>
+              </div>
+              <span id="stage-label" class="stage-label" aria-live="polite"></span>
+              <span class="bowl-rim"></span>
+              <span id="bowl-placeholder" class="bowl-placeholder">Pusti surovinu sem</span>
+              <div id="bowl-items" class="bowl-items"></div>
+            </div>
+          </section>
+
+          <section class="ingredients-shelf" aria-label="Ingrediencie">
+            <p class="column-title">Suroviny</p>
+            <div id="ingredient-bank" class="ingredient-bank"></div>
+          </section>
+        </section>
+
+        <section class="process-actions" aria-label="Ovladanie receptu">
+          <button id="start-recipe" class="primary" type="button">Start</button>
+          <button id="reset-recipe" class="secondary" type="button">Reset</button>
+        </section>
+
+        <p id="recipe-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <dialog id="win-dialog" class="dialog">
+        <img id="dialog-image" class="dialog-image" src="" alt="" hidden />
+        <h2 id="dialog-title">Vyborne, vsetky dvojice su najdene.</h2>
+        <p id="result"></p>
+        <button id="play-again" class="primary" type="button">Hrat znova</button>
+      </dialog>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
