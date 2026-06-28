@@ -317,23 +317,21 @@ h1 {
 
 .process-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(360px, 1.15fr);
+  grid-template-columns: 65% 35%;
   gap: 14px;
+  margin-top: 8px;
 }
 
 .column-title {
-  margin: 0 0 8px;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 900;
-  text-transform: uppercase;
+  color: #1e5a81;
+
+  font-weight: 600;
 }
 
 .process-bank,
 .process-list {
   display: grid;
   gap: 10px;
-  padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -357,11 +355,10 @@ h1 {
   grid-template-columns: 42px 1fr;
   align-items: center;
   gap: 12px;
-  min-height: 78px;
-  padding: 10px;
-  border: 2px dashed rgba(255, 210, 142, 0.28);
+  height: 72px;
+  padding: 8px;
+  border: 1px solid #1e5a81;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.18);
 }
 
 .process-slot.is-hovered {
@@ -386,17 +383,17 @@ h1 {
 .slot-number {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
-  color: #1c1207;
-  background: #fbbf24;
-  font-weight: 1000;
+  color: white;
+  background: #1e5a81;
+  font-weight: 600;
 }
 
 .slot-placeholder {
-  color: rgba(255, 241, 220, 0.48);
-  font-weight: 800;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
 }
 
 .process-slot .process-item {
@@ -413,9 +410,9 @@ h1 {
   grid-template-columns: 32px 1fr;
   align-items: center;
   gap: 12px;
-  min-height: 58px;
-  padding: 12px;
-  border: 1px solid rgba(255, 210, 142, 0.18);
+  height: 72px;
+  padding: 8px;
+  border: 1px solid #1e5a81;
   border-radius: 8px;
   color: var(--text);
   background:
@@ -473,7 +470,7 @@ h1 {
 .feedback {
   min-height: 24px;
   margin: 12px 0 0;
-  color: #ffd08a;
+  color: #000000;
   font-weight: 800;
 }
 
@@ -1910,4 +1907,104 @@ h1 {
 
 .hidden {
   display: none !important;
+}
+
+.sklarstvo_top {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.strong_p {
+  font-weight: 600;
+}
+
+.sklarstvo_top_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sklarstvo_top_2 p {
+  line-height: 1.15 !important;
+}
+
+.process-slot.is-filled .slot-placeholder {
+  display: none !important;
+}
+
+.process-slot.is-filled .process-item .drag-handle,
+.process-slot.is-filled .process-item .step-copy span {
+  display: none !important;
+}
+
+.process-slot.is-filled .process-item {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  width: auto !important;
+}
+
+.process-slot.is-filled .process-item .step-copy strong {
+  color: rgba(0, 0, 0, 1) !important;
+  font-weight: 600 !important;
+  font-size: 16px;
+}
+
+.process-actions {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.process-actions button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.secondary-button {
+  background-color: #1e5a81;
+  color: #ffffff;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.process-actions .primary-button {
+  background-color: #ffffff;
+  color: #1e5a81;
+  border: 1px solid #1e5a81;
+}
+
+.process-actions .primary-button:hover {
+  background-color: #fefefe;
+}
+
+.process-actions button:active {
+  transform: scale(0.98);
+}
+
+.success_sklarstvo_img {
+  object-fit: cover;
+  width: 70%;
+  height: 180px;
+  border-radius: 8px;
 }

@@ -261,15 +261,11 @@ function createCard(item, index) {
   card.setAttribute("aria-label", `Karta ${index + 1}: ${item.label}`);
 
   card.innerHTML = `
-  <span class="card-inner">
-    <span class="card-back" aria-hidden="true">
-     <img src="assets/images/stol_trencin_logo.svg" alt="Logo">
+    <span class="card-inner">
+      <span class="card-back" aria-hidden="true">?</span>
+      <span class="card-face">${cardFaceContent(item)}</span>
     </span>
-    <span class="card-face">
-      ${cardFaceContent(item)}
-    </span>
-  </span>
-`;
+  `;
 
   card.addEventListener("click", () => flipCard(card));
   return card;
@@ -330,13 +326,10 @@ function checkWin() {
   }
 
   stopTimer();
-
-  document.getElementById("memory-game").hidden = true;
-  document.getElementById("game-finish").hidden = false;
-  document.getElementById("game-toolbar").classList.add("hidden");
-
-  document.getElementById("finish-time").textContent = formatTime(seconds);
-  document.getElementById("finish-moves").textContent = moves;
+  hideDialogImage();
+  dialogTitleEl.textContent = "Vyborne, vsetky dvojice su najdene.";
+  resultEl.textContent = `Dokoncene za ${formatTime(seconds)} a ${moves} tahov.`;
+  winDialog.showModal();
 }
 
 function resetActiveGame() {
@@ -355,11 +348,7 @@ function resetActiveGame() {
 
 function resetGame() {
   stopTimer();
-
-  document.getElementById("memory-game").hidden = false;
-  document.getElementById("game-finish").hidden = true;
-  document.getElementById("game-toolbar").classList.remove("hidden");
-
+  hideDialogImage();
   firstCard = null;
   secondCard = null;
   lockBoard = false;
@@ -371,18 +360,17 @@ function resetGame() {
   matchesEl.textContent = "0";
   pairTotalEl.textContent = cardCount / 2;
   timerEl.textContent = "00:00";
-
   board.replaceChildren();
 
   const pairCount = cardCount / 2;
   const selectedItems = shuffle(cardItems).slice(0, pairCount);
   const deck = shuffle([...selectedItems, ...selectedItems]);
-
   board.style.setProperty("--columns", getColumnCount(cardCount));
+  deck.forEach((item, index) => board.appendChild(createCard(item, index)));
 
-  deck.forEach((item, index) => {
-    board.appendChild(createCard(item, index));
-  });
+  if (winDialog.open) {
+    winDialog.close();
+  }
 }
 
 function switchGame(game) {
