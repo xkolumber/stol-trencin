@@ -172,10 +172,23 @@ function renderImage() {
   document.getElementById("imageArtwork").innerHTML = item.artwork;
   document.getElementById("imageMeta").innerHTML = item.meta;
 
+  const total = galleryImages.length;
+  const maxDots = 6;
+  let start = 0;
+
+  if (total > maxDots) {
+    start = currentImage - Math.floor(maxDots / 2);
+
+    if (start < 0) start = 0;
+
+    if (start + maxDots > total) start = total - maxDots;
+  }
+
   let dots = "";
-  galleryImages.forEach((x, i) => {
+  for (let i = start; i < Math.min(start + maxDots, total); i++) {
     dots += `<div class="dot ${i === currentImage ? "active" : ""}"></div>`;
-  });
+  }
+
   document.getElementById("dots").innerHTML = dots;
 }
 
