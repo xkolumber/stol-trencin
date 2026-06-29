@@ -11,15 +11,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-p,
+p {
+  font-family: "Raleway", sans-serif;
+  color: black;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
-  color: black;
+  font-family: "Playfair Display", serif;
 }
 .panel {
   width: 95%;

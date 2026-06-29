@@ -324,8 +324,10 @@ h1 {
 
 .column-title {
   color: #1e5a81;
-
+  text-transform: uppercase;
   font-weight: 600;
+  margin-bottom: 8px;
+  font-family: "Playfair Display", serif;
 }
 
 .process-bank,
@@ -476,11 +478,9 @@ h1 {
 
 .ingredients-header {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
+  flex-direction: row;
   gap: 16px;
-  margin-bottom: 14px;
-  padding: 18px;
+
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -495,10 +495,12 @@ h1 {
 }
 
 .recipe-status {
-  display: grid;
-  gap: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
   min-width: 84px;
-  text-align: right;
+  text-align: center;
+  align-items: center;
 }
 
 .recipe-status span {
@@ -507,8 +509,8 @@ h1 {
 }
 
 .recipe-status strong {
-  color: #10231d;
-  background: #5eead4;
+  color: #ffffff;
+  background: #008000;
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 1.2rem;
@@ -516,10 +518,7 @@ h1 {
 
 .recipe-board {
   display: grid;
-  grid-template-columns: minmax(250px, 0.8fr) minmax(320px, 1.35fr) minmax(
-      230px,
-      0.8fr
-    );
+  grid-template-columns: 33% 33% 33%;
   gap: 14px;
 }
 
@@ -547,27 +546,25 @@ h1 {
 }
 
 .recipe-instruction {
-  min-height: 46px;
-  margin: 8px 0 14px;
-  color: var(--muted);
-  font-weight: 700;
+  line-height: 1.15 !important;
 }
 
 .recipe-targets {
   display: grid;
   gap: 8px;
+  margin-top: 16px;
 }
 
 .recipe-target {
   display: grid;
-  grid-template-columns: 34px 38px 1fr;
+  grid-template-columns: 34px 1fr 34px;
   align-items: center;
   gap: 10px;
   min-height: 46px;
   padding: 8px;
-  border: 1px solid rgba(255, 210, 142, 0.2);
+  border: 1px solid #1e5a81;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.18);
+  background: white;
 }
 
 .recipe-target span {
@@ -576,26 +573,27 @@ h1 {
   width: 34px;
   height: 34px;
   border-radius: 8px;
-  color: #10231d;
-  background: #5eead4;
-  font-weight: 1000;
+  color: #ffffff;
+  background: #1e5a81;
+  font-weight: 600;
 }
 
 .recipe-target strong {
   min-width: 0;
+  font-weight: 500;
 }
 
 .recipe-target img {
-  width: 38px;
-  height: 38px;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   object-fit: cover;
 }
 
 .recipe-target.is-done {
   border-color: rgba(34, 197, 94, 0.86);
-  color: #bbf7d0;
-  background: rgba(34, 197, 94, 0.12);
+  color: #1e5a81;
+  background: rgba(30, 90, 129, 0.12);
 }
 
 .timing-track {
@@ -630,15 +628,9 @@ h1 {
   flex: 1;
   min-height: 424px;
   padding: 20px;
-  border: 2px dashed rgba(94, 234, 212, 0.34);
+  border: 1px solid #1e5a81;
   border-radius: 8px;
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(94, 234, 212, 0.2),
-      transparent 60%
-    ),
-    rgba(0, 0, 0, 0.2);
+  background: white;
   transition:
     border-color 180ms ease,
     background 180ms ease,
@@ -1186,8 +1178,8 @@ h1 {
   z-index: 1;
   align-self: start;
   margin-top: 82px;
-  color: rgba(255, 241, 220, 0.5);
-  font-weight: 900;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
   text-align: center;
 }
 
@@ -1915,6 +1907,27 @@ h1 {
   gap: 16px;
 }
 
+.gastronomia_top {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.gastronomia_picture_text {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.gastronomia_picture_text img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
 .strong_p {
   font-weight: 600;
 }
@@ -1922,7 +1935,9 @@ h1 {
 .sklarstvo_top_2 {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
+  justify-content: center;
 }
 
 .sklarstvo_top_2 p {
@@ -1974,6 +1989,25 @@ h1 {
     transform 0.1s ease;
 }
 
+.process-actions-gastro {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.process-actions-gastro button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
 .secondary-button {
   background-color: #1e5a81;
   color: #ffffff;
@@ -1988,13 +2022,15 @@ h1 {
     transform 0.1s ease;
 }
 
-.process-actions .primary-button {
+.process-actions .primary-button,
+.process-actions-gastro .primary-button {
   background-color: #ffffff;
   color: #1e5a81;
   border: 1px solid #1e5a81;
 }
 
-.process-actions .primary-button:hover {
+.process-actions .primary-button:hover,
+.process-actions-gastro .primary-button:hover {
   background-color: #fefefe;
 }
 
