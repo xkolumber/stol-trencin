@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Kováčstvo</title>
+    <link rel="stylesheet" href="css/styles_game.css" />
+    <link rel="stylesheet" href="css/styles_main.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <div class="header_first">
+          <img class="img_header" src="../images/hra_kovacstvo.svg" />
+          <div class="title">Kováčstvo</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div id="text3Page" class="page active">
+          <div class="text-container">
+            <main class="app game-compact">
+              <section id="game-toolbar">
+                <div class="game-stat">
+                  <img src="assets/images/tahy.svg" alt="" />
+                  <small>Ťahy:</small>
+                  <strong id="moves">0</strong>
+                </div>
+
+                <div class="game-stat">
+                  <img src="assets/images/users.svg" alt="" />
+                  <small>Páry:</small>
+                  <strong
+                    ><span id="matches">0</span>/<span id="pair-total"
+                      >8</span
+                    ></strong
+                  >
+                </div>
+
+                <div class="game-stat">
+                  <img src="assets/images/cas.svg" alt="" />
+                  <small>Čas:</small>
+                  <strong id="timer">00:00</strong>
+                </div>
+
+                <button id="new-game" class="restart-btn" type="button">
+                  ↻
+                </button>
+              </section>
+
+              <section id="memory-game" class="game-panel">
+                <section
+                  id="game-board"
+                  class="board"
+                  aria-label="Hracia plocha pexesa"
+                ></section>
+              </section>
+
+              <section id="game-finish" class="game-finish" hidden>
+                <h3>Výborne!</h3>
+
+                <p class="finish-text">Našiel si všetky dvojice.</p>
+
+                <div class="finish-stats">
+                  <div>
+                    <span>Čas</span>
+                    <strong id="finish-time"></strong>
+                  </div>
+
+                  <div>
+                    <span>Ťahy</span>
+                    <strong id="finish-moves"></strong>
+                  </div>
+                </div>
+
+                <button id="play-again" class="finish-button">
+                  Hrať znova
+                </button>
+              </section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script_main.js"></script>
+    <script src="js/script_kovacstvo.js"></script>
+  </body>
+</html>

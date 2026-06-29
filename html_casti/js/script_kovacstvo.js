@@ -220,3 +220,9 @@ if (newGameButton) {
 if (playAgainButton) {
   playAgainButton.addEventListener("click", resetGame);
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (typeof resetGame === "function") {
+    resetGame();
+  }
+});

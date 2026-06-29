@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sklárstvo</title>
+    <link rel="stylesheet" href="css/styles_game.css" />
+    <link rel="stylesheet" href="css/styles_main.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <div class="header_first">
+          <img class="img_header" src="../images/hra_sklarstvo.svg" />
+          <div class="title">Sklárstvo</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div id="text3Page" class="page active">
+          <div class="text-container">
+            <section id="process-game" class="game-panel">
+              <section class="sklarstvo_top" aria-label="Zadanie procesu">
+                <img class="" src="assets/images/puzzle.svg" />
+                <div class="sklarstvo_top_2">
+                  <p class="strong_p">Dokážeš vyrobiť sklenený pohár?</p>
+                  <p>
+                    Presuň jednotlivé kroky výroby skla do správneho poradia.
+                  </p>
+                </div>
+              </section>
+
+              <section class="process-layout" aria-label="Skladanie procesu">
+                <div>
+                  <p class="column-title">Kroky</p>
+                  <section
+                    id="process-bank"
+                    class="process-bank"
+                    aria-label="Kroky na vlozenie"
+                  ></section>
+                </div>
+
+                <div>
+                  <p class="column-title">Proces</p>
+                  <section
+                    id="process-list"
+                    class="process-list"
+                    aria-label="Okienka procesu"
+                  ></section>
+                </div>
+              </section>
+
+              <section class="process-actions" aria-label="Ovládanie procesu">
+                <button id="reset-process" class="primary-button" type="button">
+                  Premiešať
+                </button>
+
+                <button
+                  id="check-process"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Skontrolovať
+                </button>
+              </section>
+
+              <p id="process-feedback" class="feedback" aria-live="polite">
+                <span id="process-score" style="display: none">0/6</span>
+              </p>
+            </section>
+
+            <section
+              id="process-success"
+              class="game-panel hidden"
+              style="text-align: center; padding: 40px 20px"
+            >
+              <div style="margin-bottom: 24px">
+                <img
+                  src="assets/images/sklarstvo_success.png"
+                  alt="Úspech"
+                  class="success_sklarstvo_img"
+                />
+              </div>
+              <h2
+                style="
+                  font-size: 24px;
+                  font-weight: 700;
+                  color: #1e5a81;
+                  margin-bottom: 12px;
+                "
+              >
+                Výborne! Proces je správne zoradený.
+              </h2>
+              <p style="font-size: 16px; color: #495057; margin: 0">
+                Práve si si vyskúšal/-a základný postup výroby skla. Podobným
+                spôsobom vznikali sklenené výrobky aj v sklárskych hutách v
+                Gápeli, Lednických Rovniach či Nemšovej.
+              </p>
+
+              <div style="margin-top: 24px">
+                <button
+                  id="retry-process"
+                  class="secondary-button"
+                  type="button"
+                >
+                  Zopakovať
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script_main.js"></script>
+    <script src="js/script_sklarstvo.js"></script>
+  </body>
+</html>
