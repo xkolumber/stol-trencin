@@ -1,21 +1,53 @@
 const cardItems = [
   // To use images later, put files in e.g. assets/cards/ and set image: "assets/cards/name.png".
-  { id: "anvil", label: "Nakovadlina", symbol: "A", image: null },
-  { id: "hammer", label: "Kladivo", symbol: "K", image: null },
-  { id: "tongs", label: "Klieste", symbol: "Kl", image: null },
-  { id: "forge", label: "Vyhen", symbol: "V", image: null },
-  { id: "coal", label: "Uhlie", symbol: "U", image: null },
-  { id: "iron", label: "Zelezo", symbol: "Fe", image: null },
-  { id: "spark", label: "Iskra", symbol: "*", image: null },
-  { id: "horseshoe", label: "Podkova", symbol: "P", image: null },
-  { id: "bellows", label: "Mech", symbol: "M", image: null },
-  { id: "chisel", label: "Sekac", symbol: "S", image: null },
-  { id: "water", label: "Kaliaca voda", symbol: "H2O", image: null },
-  { id: "file", label: "Pilnik", symbol: "Pi", image: null },
-  { id: "rivet", label: "Nit", symbol: "N", image: null },
-  { id: "apron", label: "Zastera", symbol: "Z", image: null },
-  { id: "gloves", label: "Rukavice", symbol: "R", image: null },
-  { id: "flame", label: "Plamen", symbol: "F", image: null },
+  {
+    id: "anvil",
+    label: "Nakovadlina",
+    symbol: "A",
+    image: "../images/kovacstvo/pexeso/1.png",
+  },
+  {
+    id: "hammer",
+    label: "Kladivo",
+    symbol: "K",
+    image: "../images/kovacstvo/pexeso/2.png",
+  },
+  {
+    id: "tongs",
+    label: "Klieste",
+    symbol: "Kl",
+    image: "../images/kovacstvo/pexeso/3.png",
+  },
+  {
+    id: "forge",
+    label: "Vyhen",
+    symbol: "V",
+    image: "../images/kovacstvo/pexeso/4.png",
+  },
+  {
+    id: "coal",
+    label: "Uhlie",
+    symbol: "U",
+    image: "../images/kovacstvo/pexeso/5.png",
+  },
+  {
+    id: "iron",
+    label: "Zelezo",
+    symbol: "Fe",
+    image: "../images/kovacstvo/pexeso/6.png",
+  },
+  {
+    id: "spark",
+    label: "Iskra",
+    symbol: "*",
+    image: "../images/kovacstvo/pexeso/7.png",
+  },
+  {
+    id: "horseshoe",
+    label: "Podkova",
+    symbol: "P",
+    image: "../images/kovacstvo/pexeso/8.png",
+  },
 ];
 
 const board = document.querySelector("#game-board");
