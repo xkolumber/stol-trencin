@@ -110,20 +110,21 @@ const ingredientItems = [
 
 const ingredientRecipes = [
   {
-    name: "Cesto na doske",
+    name: "Príprava cesta",
     seconds: 12,
-    waitLabel: "Cesto sa valka a kraja",
+    waitLabel: "Cesto sa vaľká a krája",
     stage: "board",
     instruction:
-      "Priprav cesto na doske. Po dokonceni sa vyvalka a nakraja nozom.",
+      "Priprav cesto na doske. Po dokončení ho vyvaľkaj a nakrájaj nožom.",
     ingredients: ["potatoes", "flour", "egg", "salt"],
   },
   {
     name: "Plnenie periek",
     seconds: 10,
-    waitLabel: "Do kazdeho kusu ide lekvar a okraje sa pritlacia",
+    waitLabel: "Perky sa plnia lekvárom",
     stage: "filled",
-    instruction: "Na kazdy kus cesta daj lekvar, prehni ho a pritlac okraje.",
+    instruction:
+      "Na každý kúsok cesta polož lekvár, prelož ho a pritlač okraje.",
     ingredients: ["jam", "flour", "sugar"],
   },
   {
@@ -131,23 +132,23 @@ const ingredientRecipes = [
     seconds: 10,
     waitLabel: "Perky sa varia",
     stage: "boiling",
-    instruction: "Daj perky do osolenej vody a nechaj ich varit.",
+    instruction: "Vlož perky do osolenej vody a nechaj ich variť.",
     ingredients: ["water", "salt", "potatoes"],
   },
   {
-    name: "Vybratie z hrnca",
+    name: "Vyberanie z hrnca",
     seconds: 9,
-    waitLabel: "Perky sa vyberaju na tanier",
+    waitLabel: "Perky sa vyberajú z hrnca",
     stage: "plate",
-    instruction: "Vyber uvarene perky z hrnca a preloz ich na tanier.",
+    instruction: "Vyber uvarené perky z hrnca a prelož ich na tanier.",
     ingredients: ["butter", "water", "salt"],
   },
   {
-    name: "Posypanie",
+    name: "Dokončenie",
     seconds: 14,
-    waitLabel: "Perky sa posypu",
+    waitLabel: "Perky sa omastia a posypú",
     stage: "finished",
-    instruction: "Nakoniec ich omast, posyp struhankou a cukrom.",
+    instruction: "Nakoniec perky omaž maslom a posyp strúhankou s cukrom.",
     ingredients: ["butter", "crumbs", "sugar"],
   },
 ];
@@ -837,9 +838,9 @@ function startRecipeGame() {
   ingredientsGame.classList.add("is-cooking");
   ingredientsGame.classList.remove("is-waiting");
   setRecipeStage(ingredientRecipes[recipeRound].stage, "");
-  startRecipeButton.textContent = "Bezi";
+  startRecipeButton.textContent = "-";
   startRecipeButton.disabled = true;
-  recipeFeedbackEl.textContent = "Cas bezi. Traf spravne poradie.";
+  recipeFeedbackEl.textContent = "Čas beží. Priprav recept v správnom poradí.";
   stopRecipeTimer();
   recipeTimerId = window.setInterval(() => {
     recipeTimeLeft = Math.max(0, recipeTimeLeft - 0.1);

@@ -4,32 +4,35 @@ const ingredientItems = [
     label: "Zemiaky",
     image: "assets/ingredients/potatoes.svg",
   },
-  { id: "flour", label: "Muka", image: "assets/ingredients/flour.svg" },
+  { id: "flour", label: "Múka", image: "assets/ingredients/flour.svg" },
   { id: "egg", label: "Vajce", image: "assets/ingredients/egg.svg" },
   { id: "water", label: "Voda", image: "assets/ingredients/water.svg" },
-  { id: "salt", label: "Sol", image: "assets/ingredients/salt.svg" },
-  { id: "jam", label: "Lekvar", image: "assets/ingredients/jam.svg" },
+  { id: "salt", label: "Soľ", image: "assets/ingredients/salt.svg" },
+  { id: "jam", label: "Lekvár", image: "assets/ingredients/jam.svg" },
   { id: "butter", label: "Maslo", image: "assets/ingredients/butter.svg" },
-  { id: "crumbs", label: "Struhanka", image: "assets/ingredients/crumbs.svg" },
+  {
+    id: "crumbs",
+    label: "Strúhanka",
+    image: "assets/ingredients/crumbs.svg",
+  },
   { id: "sugar", label: "Cukor", image: "assets/ingredients/sugar.svg" },
 ];
-
 const ingredientRecipes = [
   {
     name: "Cesto na doske",
     seconds: 12,
-    waitLabel: "Cesto sa valka a kraja",
+    waitLabel: "Cesto sa vaľká a krája",
     stage: "board",
     instruction:
-      "Priprav cesto na doske. Po dokončení sa vyvaľká a nakrája nožom.",
+      "Priprav cesto na doske. Po dokončení ho vyvaľkaj a nakrájaj nožom.",
     ingredients: ["potatoes", "flour", "egg", "salt"],
   },
   {
     name: "Plnenie periek",
     seconds: 10,
-    waitLabel: "Do kazdeho kusu ide lekvar a okraje sa pritlacia",
+    waitLabel: "Perky sa plnia lekvárom a okraje sa pritláčajú",
     stage: "filled",
-    instruction: "Na kazdy kus cesta daj lekvar, prehni ho a pritlac okraje.",
+    instruction: "Na každý kúsok cesta daj lekvár, prelož ho a pritlač okraje.",
     ingredients: ["jam", "flour", "sugar"],
   },
   {
@@ -37,28 +40,28 @@ const ingredientRecipes = [
     seconds: 10,
     waitLabel: "Perky sa varia",
     stage: "boiling",
-    instruction: "Daj perky do osolenej vody a nechaj ich varit.",
+    instruction: "Vlož perky do osolenej vody a nechaj ich variť.",
     ingredients: ["water", "salt", "potatoes"],
   },
   {
-    name: "Vybratie z hrnca",
+    name: "Vyberanie z hrnca",
     seconds: 9,
-    waitLabel: "Perky sa vyberaju na tanier",
+    waitLabel: "Perky sa vyberajú z hrnca",
     stage: "plate",
-    instruction: "Vyber uvarene perky z hrnca a preloz ich na tanier.",
+    instruction: "Vyber uvarené perky z hrnca a prelož ich na tanier.",
     ingredients: ["butter", "water", "salt"],
   },
   {
     name: "Posypanie",
     seconds: 14,
-    waitLabel: "Perky sa posypu",
+    waitLabel: "Perky sa omastia a posypú",
     stage: "finished",
-    instruction: "Nakoniec ich omast, posyp struhankou a cukrom.",
+    instruction: "Nakoniec ich omaž maslom a posyp strúhankou a cukrom.",
     ingredients: ["butter", "crumbs", "sugar"],
   },
 ];
 
-const winDialog = document.querySelector("#win-dialog");
+const winDialog = document.querySelector("#recipe-finished");
 const dialogImageEl = document.querySelector("#dialog-image");
 const dialogTitleEl = document.querySelector("#dialog-title");
 const resultEl = document.querySelector("#result");
@@ -117,16 +120,32 @@ function stopRecipeWaitTimer() {
 function showDialogImage(src, alt) {
   dialogImageEl.src = src;
   dialogImageEl.alt = alt;
-  dialogImageEl.hidden = false;
-  winDialog.classList.add("is-finale");
+  // Skryjeme hrací panel a ukážeme panel výhry
+  ingredientsGame.classList.add("hidden");
+  winDialog.classList.remove("hidden");
 }
 
 function hideDialogImage() {
-  winDialog.classList.remove("is-finale");
-  dialogImageEl.hidden = true;
+  // Ukážeme hrací panel naspäť a skryjeme výhru
+  winDialog.classList.add("hidden");
+  ingredientsGame.classList.remove("hidden");
   dialogImageEl.removeAttribute("src");
   dialogImageEl.alt = "";
 }
+
+// function showDialogImage(src, alt) {
+//   dialogImageEl.src = src;
+//   dialogImageEl.alt = alt;
+//   dialogImageEl.hidden = false;
+//   winDialog.classList.add("is-finale");
+// }
+
+// function hideDialogImage() {
+//   winDialog.classList.remove("is-finale");
+//   dialogImageEl.hidden = true;
+//   dialogImageEl.removeAttribute("src");
+//   dialogImageEl.alt = "";
+// }
 
 // 5. Logika vizuálnych fáz receptu
 function setRecipeStage(stage, label = "") {
@@ -256,7 +275,8 @@ function renderRecipe() {
 function resetRecipeGame() {
   stopRecipeTimer();
   stopRecipeWaitTimer();
-  hideDialogImage();
+  hideDialogImage(); // Toto zabezpečí, že sa znova ukáže čistá hra
+
   recipeRound = 0;
   recipeRunning = false;
   recipeWaiting = false;
@@ -277,11 +297,37 @@ function resetRecipeGame() {
   });
 
   renderRecipe();
-
-  if (winDialog.open) {
-    winDialog.close();
-  }
 }
+
+// function resetRecipeGame() {
+//   stopRecipeTimer();
+//   stopRecipeWaitTimer();
+//   hideDialogImage();
+//   recipeRound = 0;
+//   recipeRunning = false;
+//   recipeWaiting = false;
+//   ingredientsGame.classList.remove("is-cooking", "is-waiting");
+//   selectedIngredient = null;
+//   draggedIngredient = null;
+//   pointerDraggedIngredient = null;
+//   removeIngredientDragGhost();
+
+//   recipeFeedbackEl.textContent =
+//     "Stlač Štart a potom presúvaj suroviny do misy.";
+//   startRecipeButton.textContent = "Štart";
+//   startRecipeButton.disabled = false;
+
+//   ingredientBank.replaceChildren();
+//   shuffle(ingredientItems).forEach((ingredient) => {
+//     ingredientBank.appendChild(createIngredientItem(ingredient));
+//   });
+
+//   renderRecipe();
+
+//   if (winDialog.open) {
+//     winDialog.close();
+//   }
+// }
 
 function startRecipeGame() {
   if (recipeRunning || recipeWaiting) return;
@@ -295,7 +341,7 @@ function startRecipeGame() {
   ingredientsGame.classList.add("is-cooking");
   ingredientsGame.classList.remove("is-waiting");
   setRecipeStage(ingredientRecipes[recipeRound].stage, "");
-  startRecipeButton.textContent = "Bezi";
+  startRecipeButton.textContent = "Beží ti čas";
   startRecipeButton.disabled = true;
   recipeFeedbackEl.textContent =
     "Čas beži. Poukladaj suroviny v správnom poradí.";
@@ -467,15 +513,32 @@ function finishRecipeGame() {
   ingredientsGame.classList.remove("is-cooking", "is-waiting");
   setRecipeStage("finished", "");
 
+  // Spustí prepnutie kariet (skryje hru, ukáže info)
   showDialogImage(
-    "assets/ingredients/perky-plate.svg",
+    "../images/gastronomia/perky.png",
     "Hotove slovenske perky na tanieri",
   );
-  dialogTitleEl.textContent = "Perky su hotove.";
+
+  dialogTitleEl.textContent = "Perky sú hotové!";
   resultEl.textContent =
-    "Stihol si pripravit cesto, naplnit perky, uvarit ich, vybrat na tanier a posypat.";
-  winDialog.showModal();
+    "Stihol si pripraviť cesto, naplniť perky, uvariť ich, vybrať na tanier a posypať.";
 }
+
+// function finishRecipeGame() {
+//   recipeFeedbackEl.textContent = "";
+//   startRecipeButton.textContent = "Hotovo";
+//   ingredientsGame.classList.remove("is-cooking", "is-waiting");
+//   setRecipeStage("finished", "");
+
+//   showDialogImage(
+//     "assets/ingredients/perky-plate.svg",
+//     "Hotove slovenske perky na tanieri",
+//   );
+//   dialogTitleEl.textContent = "Perky su hotove.";
+//   resultEl.textContent =
+//     "Stihol si pripravit cesto, naplnit perky, uvarit ich, vybrat na tanier a posypat.";
+//   winDialog.showModal();
+// }
 
 // 9. Pointer Event Handlery (Drag & Drop podpora pre dotyk a myš)
 function handleIngredientPointerMove(event) {
@@ -554,3 +617,7 @@ document.addEventListener("pointerup", handleIngredientPointerUp);
 
 // Inicializácia hry pri načítaní súboru
 resetRecipeGame();
+
+document
+  .querySelector("#play-again")
+  .addEventListener("click", resetRecipeGame);

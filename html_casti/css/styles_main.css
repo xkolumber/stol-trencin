@@ -241,6 +241,7 @@ h6 {
 .remeslo-item h2,
 .remeslo-item:visited h2 {
   color: #1e5a81 !important;
+  font-size: 32px;
 }
 
 .circle-btn {

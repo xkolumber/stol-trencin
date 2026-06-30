@@ -19,24 +19,93 @@ const cardItems = [
 ];
 
 const processSteps = [
-  { id: "prepare", title: "Priprav material", detail: "Vyber spravny kus ocele a nastroje." },
-  { id: "heat", title: "Rozohrej vo vyhni", detail: "Ocel musi byt dostatocne zohriata na kovanie." },
-  { id: "shape", title: "Tvaruj na nakovadline", detail: "Kladivom vytvor zakladny obluk podkovy." },
-  { id: "punch", title: "Vytvor otvory", detail: "Sekacom priprav miesta pre klince." },
-  { id: "quench", title: "Ochlad a skontroluj", detail: "Kus ochlad, skontroluj tvar a pevnost." },
-  { id: "finish", title: "Dobrus hrany", detail: "Pilnikom zacisti ostre casti a dokonc vyrobok." },
+  {
+    id: "prepare",
+    title: "Priprav material",
+    detail: "Vyber spravny kus ocele a nastroje.",
+  },
+  {
+    id: "heat",
+    title: "Rozohrej vo vyhni",
+    detail: "Ocel musi byt dostatocne zohriata na kovanie.",
+  },
+  {
+    id: "shape",
+    title: "Tvaruj na nakovadline",
+    detail: "Kladivom vytvor zakladny obluk podkovy.",
+  },
+  {
+    id: "punch",
+    title: "Vytvor otvory",
+    detail: "Sekacom priprav miesta pre klince.",
+  },
+  {
+    id: "quench",
+    title: "Ochlad a skontroluj",
+    detail: "Kus ochlad, skontroluj tvar a pevnost.",
+  },
+  {
+    id: "finish",
+    title: "Dobrus hrany",
+    detail: "Pilnikom zacisti ostre casti a dokonc vyrobok.",
+  },
 ];
 
 const ingredientItems = [
-  { id: "potatoes", label: "Zemiaky", symbol: "Ze", image: "assets/ingredients/potatoes.svg" },
-  { id: "flour", label: "Muka", symbol: "Mu", image: "assets/ingredients/flour.svg" },
-  { id: "egg", label: "Vajce", symbol: "Va", image: "assets/ingredients/egg.svg" },
-  { id: "water", label: "Voda", symbol: "Vo", image: "assets/ingredients/water.svg" },
-  { id: "salt", label: "Sol", symbol: "So", image: "assets/ingredients/salt.svg" },
-  { id: "jam", label: "Lekvar", symbol: "Le", image: "assets/ingredients/jam.svg" },
-  { id: "butter", label: "Maslo", symbol: "Ma", image: "assets/ingredients/butter.svg" },
-  { id: "crumbs", label: "Struhanka", symbol: "St", image: "assets/ingredients/crumbs.svg" },
-  { id: "sugar", label: "Cukor", symbol: "Cu", image: "assets/ingredients/sugar.svg" },
+  {
+    id: "potatoes",
+    label: "Zemiaky",
+    symbol: "Ze",
+    image: "assets/ingredients/potatoes.svg",
+  },
+  {
+    id: "flour",
+    label: "Muka",
+    symbol: "Mu",
+    image: "assets/ingredients/flour.svg",
+  },
+  {
+    id: "egg",
+    label: "Vajce",
+    symbol: "Va",
+    image: "assets/ingredients/egg.svg",
+  },
+  {
+    id: "water",
+    label: "Voda",
+    symbol: "Vo",
+    image: "assets/ingredients/water.svg",
+  },
+  {
+    id: "salt",
+    label: "Sol",
+    symbol: "So",
+    image: "assets/ingredients/salt.svg",
+  },
+  {
+    id: "jam",
+    label: "Lekvar",
+    symbol: "Le",
+    image: "assets/ingredients/jam.svg",
+  },
+  {
+    id: "butter",
+    label: "Maslo",
+    symbol: "Ma",
+    image: "assets/ingredients/butter.svg",
+  },
+  {
+    id: "crumbs",
+    label: "Struhanka",
+    symbol: "St",
+    image: "assets/ingredients/crumbs.svg",
+  },
+  {
+    id: "sugar",
+    label: "Cukor",
+    symbol: "Cu",
+    image: "assets/ingredients/sugar.svg",
+  },
 ];
 
 const ingredientRecipes = [
@@ -45,7 +114,8 @@ const ingredientRecipes = [
     seconds: 12,
     waitLabel: "Cesto sa valka a kraja",
     stage: "board",
-    instruction: "Priprav cesto na doske. Po dokonceni sa vyvalka a nakraja nozom.",
+    instruction:
+      "Priprav cesto na doske. Po dokonceni sa vyvalka a nakraja nozom.",
     ingredients: ["potatoes", "flour", "egg", "salt"],
   },
   {
@@ -202,7 +272,11 @@ function createCard(item, index) {
 }
 
 function flipCard(card) {
-  if (lockBoard || card === firstCard || card.classList.contains("is-matched")) {
+  if (
+    lockBoard ||
+    card === firstCard ||
+    card.classList.contains("is-matched")
+  ) {
     return;
   }
 
@@ -434,7 +508,10 @@ function handleProcessPointerMove(event) {
     return;
   }
 
-  const distance = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y);
+  const distance = Math.hypot(
+    event.clientX - pointerStart.x,
+    event.clientY - pointerStart.y,
+  );
   if (distance > 8) {
     pointerMoved = true;
     pointerDraggedStep.classList.add("is-dragging");
@@ -731,7 +808,8 @@ function resetRecipeGame() {
   draggedIngredient = null;
   pointerDraggedIngredient = null;
   removeIngredientDragGhost();
-  recipeFeedbackEl.textContent = "Stlac Start a potom presuvaj suroviny do misy.";
+  recipeFeedbackEl.textContent =
+    "Stlac Start a potom presuvaj suroviny do misy.";
   startRecipeButton.textContent = "Start";
   startRecipeButton.disabled = false;
   ingredientBank.replaceChildren();
@@ -759,9 +837,9 @@ function startRecipeGame() {
   ingredientsGame.classList.add("is-cooking");
   ingredientsGame.classList.remove("is-waiting");
   setRecipeStage(ingredientRecipes[recipeRound].stage, "");
-  startRecipeButton.textContent = "Bezi";
+  startRecipeButton.textContent = "-";
   startRecipeButton.disabled = true;
-  recipeFeedbackEl.textContent = "Cas bezi. Traf spravne poradie.";
+  recipeFeedbackEl.textContent = "Čas beží. Traf spravne poradie.";
   stopRecipeTimer();
   recipeTimerId = window.setInterval(() => {
     recipeTimeLeft = Math.max(0, recipeTimeLeft - 0.1);
@@ -790,9 +868,11 @@ function selectIngredient(item) {
     return;
   }
 
-  document.querySelectorAll(".ingredient-item.is-selected").forEach((ingredient) => {
-    ingredient.classList.remove("is-selected");
-  });
+  document
+    .querySelectorAll(".ingredient-item.is-selected")
+    .forEach((ingredient) => {
+      ingredient.classList.remove("is-selected");
+    });
   selectedIngredient = item;
   item.classList.add("is-selected");
 }
@@ -874,9 +954,13 @@ function finishRecipeGame() {
   startRecipeButton.textContent = "Hotovo";
   ingredientsGame.classList.remove("is-cooking", "is-waiting");
   setRecipeStage("finished", "");
-  showDialogImage("assets/ingredients/perky-plate.svg", "Hotove slovenske perky na tanieri");
+  showDialogImage(
+    "assets/ingredients/perky-plate.svg",
+    "Hotove slovenske perky na tanieri",
+  );
   dialogTitleEl.textContent = "Perky su hotove.";
-  resultEl.textContent = "Stihol si pripravit cesto, naplnit perky, uvarit ich, vybrat na tanier a posypat.";
+  resultEl.textContent =
+    "Stihol si pripravit cesto, naplnit perky, uvarit ich, vybrat na tanier a posypat.";
   winDialog.showModal();
 }
 
@@ -926,7 +1010,8 @@ function failRecipeRound() {
   updateRecipeTimerDisplay();
   startRecipeButton.textContent = "Skusit znova";
   startRecipeButton.disabled = false;
-  recipeFeedbackEl.textContent = "Cas vyprsal. Resetni recept alebo skus znovu od zaciatku.";
+  recipeFeedbackEl.textContent =
+    "Cas vyprsal. Resetni recept alebo skus znovu od zaciatku.";
   recipeRound = 0;
   renderRecipe();
 }
@@ -945,7 +1030,11 @@ function handleIngredientPointerMove(event) {
     ingredientPointerMoved = true;
     pointerDraggedIngredient.classList.add("is-dragging");
     if (!ingredientDragGhost) {
-      createIngredientDragGhost(pointerDraggedIngredient, event.clientX, event.clientY);
+      createIngredientDragGhost(
+        pointerDraggedIngredient,
+        event.clientX,
+        event.clientY,
+      );
     } else {
       moveIngredientDragGhost(event.clientX, event.clientY);
     }
@@ -958,7 +1047,9 @@ function handleIngredientPointerUp(event) {
   }
 
   const item = pointerDraggedIngredient;
-  const dropTarget = document.elementFromPoint(event.clientX, event.clientY)?.closest("#mixing-bowl");
+  const dropTarget = document
+    .elementFromPoint(event.clientX, event.clientY)
+    ?.closest("#mixing-bowl");
   item.classList.remove("is-dragging");
   removeIngredientDragGhost();
   if (ingredientPointerMoved && dropTarget) {
