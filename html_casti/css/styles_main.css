@@ -172,11 +172,13 @@ h6 {
 .game-item h3 {
   color: #1e5a81;
   text-decoration: none !important;
+  font-size: 32px;
 }
 
 .game-item p {
   color: #000000;
   text-decoration: none !important;
+  font-size: 18px;
 }
 
 .game-icon-wrapper {

@@ -971,7 +971,7 @@ function startRecipeWait() {
   recipeWaiting = true;
   ingredientsGame.classList.add("is-cooking", "is-waiting");
   setRecipeStage(recipe.stage, recipe.waitLabel);
-  startRecipeButton.textContent = "Vari sa";
+  startRecipeButton.textContent = "Varí sa";
   startRecipeButton.disabled = true;
   recipeFeedbackEl.textContent = `${recipe.waitLabel}... ${waitLeft}`;
   recipeTimerEl.textContent = waitLeft.toFixed(0);

@@ -458,7 +458,7 @@ function startRecipeWait() {
   recipeWaiting = true;
   ingredientsGame.classList.add("is-cooking", "is-waiting");
   setRecipeStage(recipe.stage, recipe.waitLabel);
-  startRecipeButton.textContent = "Vari sa";
+  startRecipeButton.textContent = "Varí sa";
   startRecipeButton.disabled = true;
 
   recipeFeedbackEl.textContent = `${recipe.waitLabel}... ${waitLeft}`;
@@ -519,9 +519,8 @@ function finishRecipeGame() {
     "Hotove slovenske perky na tanieri",
   );
 
-  dialogTitleEl.textContent = "Perky sú hotové!";
-  resultEl.textContent =
-    "Stihol si pripraviť cesto, naplniť perky, uvariť ich, vybrať na tanier a posypať.";
+  dialogTitleEl.textContent = "Perfektné!";
+  resultEl.textContent = "Už vieš pripraviť perky ako pravý šéfkuchár!";
 }
 
 // function finishRecipeGame() {

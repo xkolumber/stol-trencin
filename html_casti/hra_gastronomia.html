@@ -32,7 +32,6 @@
               <section class="gastronomia_top" aria-label="Zadanie procesu">
                 <div class="gastronomia_picture_text">
                   <img class="" src="assets/images/misa.svg" />
-
                   <p class="strong_p">Uvar tradičné slovenské perky</p>
                 </div>
 
@@ -74,6 +73,7 @@
                     <span class="cooking-surface" aria-hidden="true"></span>
                     <span class="stir-line stir-one" aria-hidden="true"></span>
                     <span class="stir-line stir-two" aria-hidden="true"></span>
+
                     <div
                       id="stage-product"
                       class="stage-product stage-board"
@@ -94,6 +94,7 @@
                         src="assets/ingredients/plate-empty.svg"
                         alt=""
                       />
+
                       <span class="rolling-pin"></span>
                       <span class="knife"></span>
                       <span class="dough-shape"></span>
@@ -114,6 +115,7 @@
                       <span class="sprinkle sprinkle-two"></span>
                       <span class="sprinkle sprinkle-three"></span>
                     </div>
+
                     <span
                       id="stage-label"
                       class="stage-label"
@@ -126,7 +128,6 @@
                     <div id="bowl-items" class="bowl-items"></div>
                   </div>
                 </section>
-
                 <section class="ingredients-shelf" aria-label="Ingrediencie">
                   <p class="column-title">Suroviny</p>
                   <div id="ingredient-bank" class="ingredient-bank"></div>
@@ -142,29 +143,23 @@
                   class="secondary-button"
                   type="button"
                 >
-                  Štart Ľ
+                  Štart
                 </button>
-
                 <button id="reset-recipe" class="primary-button" type="button">
                   Reset
                 </button>
               </section>
             </section>
 
-            <dialog id="win-dialog">
-              <div class="dialog-content">
-                <h2 id="dialog-title"></h2>
-                <img id="dialog-image" src="" alt="" hidden />
-                <p id="result"></p>
-                <button
-                  id="play-again"
-                  type="button"
-                  onclick="this.closest('dialog').close()"
-                >
-                  Hrať znova
-                </button>
-              </div>
-            </dialog>
+            <div id="recipe-finished" class="recipe-finished hidden">
+              <img id="dialog-image" src="../images/gastronomia/perky.png" />
+              <h2 id="dialog-title">Perfektné!</h2>
+              <p id="result">Už vieš pripraviť perky ako pravý šéfkuchár!</p>
+
+              <button id="play-again" class="secondary-button" type="button">
+                Hrať znova
+              </button>
+            </div>
           </div>
         </div>
       </div>

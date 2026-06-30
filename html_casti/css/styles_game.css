@@ -317,7 +317,7 @@ h1 {
 
 .process-layout {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 65fr 35fr;
   gap: 14px;
   margin-top: 8px;
 }
@@ -357,7 +357,7 @@ h1 {
   grid-template-columns: 42px 1fr;
   align-items: center;
   gap: 12px;
-  height: 72px;
+  height: 84px;
   padding: 8px;
   border: 1px solid #1e5a81;
   border-radius: 8px;
@@ -412,7 +412,7 @@ h1 {
   grid-template-columns: 32px 1fr;
   align-items: center;
   gap: 12px;
-  height: 72px;
+  height: 84px;
   padding: 8px;
   border: 1px solid #1e5a81;
   border-radius: 8px;
@@ -456,11 +456,12 @@ h1 {
 
 .step-copy strong {
   margin-bottom: 2px;
+  font-size: 20px;
+  font-weight: 600;
 }
-
 .step-copy span {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 18px;
 }
 
 .process-actions {
@@ -474,6 +475,7 @@ h1 {
   margin: 12px 0 0;
   color: #000000;
   font-weight: 800;
+  font-size: 20px;
 }
 
 .ingredients-header {
@@ -1953,6 +1955,7 @@ h1 {
 
 .sklarstvo_top_2 p {
   line-height: 1.15 !important;
+  font-size: 20px;
 }
 
 .process-slot.is-filled .slot-placeholder {
@@ -1983,9 +1986,9 @@ h1 {
 
 .process-actions {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 65fr 35fr;
   gap: 14px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .process-actions button {
@@ -2079,6 +2082,10 @@ section#game-finish {
   align-items: center;
   gap: 4px;
 }
+h2#game-finish {
+  font-size: 32px;
+  margin-top: 8px;
+}
 
 .finish-text {
   font-size: 18px;
@@ -2087,4 +2094,12 @@ section#game-finish {
 .finish-stats span,
 .finish-stats strong {
   font-size: 18px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+#process-game {
+  margin-top: 24px;
 }
