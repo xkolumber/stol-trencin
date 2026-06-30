@@ -2,18 +2,22 @@ function showPage(page) {
   const textPage = document.getElementById("textPage");
   const text2Page = document.getElementById("text2Page");
   const text3Page = document.getElementById("text3Page");
+  const text4Page = document.getElementById("text4Page");
 
   const tabText = document.getElementById("tabText");
   const tabText2 = document.getElementById("tabText2");
   const tabText3 = document.getElementById("tabText3");
+  const tabText4 = document.getElementById("tabText4");
 
   textPage?.classList.remove("active");
   text2Page?.classList.remove("active");
   text3Page?.classList.remove("active");
+  text4Page?.classList.remove("active");
 
   tabText?.classList.remove("active");
   tabText2?.classList.remove("active");
   tabText3?.classList.remove("active");
+  tabText4?.classList.remove("active");
 
   if (page === "text") {
     textPage?.classList.add("active");
@@ -32,5 +36,9 @@ function showPage(page) {
     if (text3Page && typeof resetGame === "function") {
       setTimeout(resetGame, 0);
     }
+  }
+  if (page === "text4") {
+    text4Page?.classList.add("active");
+    tabText4.classList.add("active");
   }
 }
