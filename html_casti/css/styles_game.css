@@ -328,6 +328,7 @@ h1 {
   font-weight: 600;
   margin-bottom: 8px;
   font-family: "Playfair Display", serif;
+  font-size: 18px;
 }
 
 .process-bank,
@@ -508,6 +509,7 @@ h1 {
 .recipe-status span {
   color: var(--muted);
   font-weight: 900;
+  font-size: 22px;
 }
 
 .recipe-status strong {
@@ -515,7 +517,7 @@ h1 {
   background: #008000;
   border-radius: 8px;
   padding: 8px 12px;
-  font-size: 1.2rem;
+  font-size: 22px;
 }
 
 .recipe-board {
@@ -548,7 +550,9 @@ h1 {
 }
 
 .recipe-instruction {
-  line-height: 1.15 !important;
+  line-height: 1.2 !important;
+  font-size: 18px;
+  margin-top: 8px;
 }
 
 .recipe-targets {
@@ -582,14 +586,16 @@ h1 {
 
 .recipe-target strong {
   min-width: 0;
-  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .recipe-target img {
   width: 100%;
-  height: 100%;
+  height: 36px;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .recipe-target.is-done {
@@ -660,7 +666,7 @@ h1 {
 }
 
 #ingredients-game.is-cooking .mixing-bowl {
-  border-color: #1e5a81;
+  border: 2px solid #1e5a81;
   border-style: dashed;
 }
 
@@ -1183,8 +1189,15 @@ h1 {
   align-self: start;
   margin-top: 82px;
   color: rgba(0, 0, 0, 0.6);
-  font-weight: 600;
+
   text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#ingredients-game {
+  margin-top: 24px;
 }
 
 .bowl-items {
@@ -1226,7 +1239,7 @@ h1 {
   width: 30px;
   height: 30px;
   border-radius: 7px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .ingredient-bank {
@@ -1238,7 +1251,7 @@ h1 {
 .ingredient-item {
   display: grid;
   justify-items: center;
-  gap: 8px;
+  gap: 4px;
   min-width: 0;
   min-height: 98px;
   padding: 12px 8px;
@@ -1291,15 +1304,17 @@ h1 {
   width: 54px;
   height: 54px;
   border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+  object-fit: contain;
+  /* box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22); */
 }
 
 .ingredient-item strong {
   max-width: 100%;
-  font-size: 0.94rem;
+  font-size: 18px;
   overflow-wrap: anywhere;
   text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
 }
 
 .ingredient-drag-ghost {
@@ -2005,7 +2020,7 @@ h1 {
 
 .process-actions-gastro {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 50fr 50fr;
   gap: 14px;
   margin-top: 8px;
 }
@@ -2064,6 +2079,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 24px;
 }
 
 h2#dialog-title {
@@ -2073,7 +2089,7 @@ h2#dialog-title {
 #result {
   width: 80%;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 section#game-finish {
@@ -2102,4 +2118,9 @@ h2#game-finish {
 
 #process-game {
   margin-top: 24px;
+}
+
+.gastronomia_picture_text p {
+  font-size: 28px;
+  font-family: "Playfair Display", serif;
 }

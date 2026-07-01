@@ -2,20 +2,25 @@ const ingredientItems = [
   {
     id: "potatoes",
     label: "Zemiaky",
-    image: "assets/ingredients/potatoes.svg",
+    image: "assets/ingredients2/potatoes.svg",
   },
-  { id: "flour", label: "Múka", image: "assets/ingredients/flour.svg" },
-  { id: "egg", label: "Vajce", image: "assets/ingredients/egg.svg" },
-  { id: "water", label: "Voda", image: "assets/ingredients/water.svg" },
-  { id: "salt", label: "Soľ", image: "assets/ingredients/salt.svg" },
-  { id: "jam", label: "Lekvár", image: "assets/ingredients/jam.svg" },
-  { id: "butter", label: "Maslo", image: "assets/ingredients/butter.svg" },
+  { id: "flour", label: "Múka", image: "assets/ingredients2/flour.svg" },
+  { id: "egg", label: "Vajce", image: "assets/ingredients2/egg.svg" },
+  { id: "water", label: "Voda", image: "assets/ingredients2/water.svg" },
+  { id: "salt", label: "Soľ", image: "assets/ingredients2/salt.svg" },
+  { id: "jam", label: "Lekvár", image: "assets/ingredients2/jam.svg" },
+  { id: "butter", label: "Maslo", image: "assets/ingredients2/butter.svg" },
   {
     id: "crumbs",
     label: "Strúhanka",
-    image: "assets/ingredients/crumbs.svg",
+    image: "assets/ingredients2/crumbs.svg",
   },
-  { id: "sugar", label: "Cukor", image: "assets/ingredients/sugar.svg" },
+  { id: "sugar", label: "Cukor", image: "assets/ingredients2/sugar.svg" },
+  {
+    id: "perky",
+    label: "Perky",
+    image: "assets/ingredients2/perky-plate.svg",
+  },
 ];
 const ingredientRecipes = [
   {
@@ -41,7 +46,7 @@ const ingredientRecipes = [
     waitLabel: "Perky sa varia",
     stage: "boiling",
     instruction: "Vlož perky do osolenej vody a nechaj ich variť.",
-    ingredients: ["water", "salt", "potatoes"],
+    ingredients: ["water", "salt", "perky"],
   },
   {
     name: "Vyberanie z hrnca",
@@ -299,36 +304,6 @@ function resetRecipeGame() {
   renderRecipe();
 }
 
-// function resetRecipeGame() {
-//   stopRecipeTimer();
-//   stopRecipeWaitTimer();
-//   hideDialogImage();
-//   recipeRound = 0;
-//   recipeRunning = false;
-//   recipeWaiting = false;
-//   ingredientsGame.classList.remove("is-cooking", "is-waiting");
-//   selectedIngredient = null;
-//   draggedIngredient = null;
-//   pointerDraggedIngredient = null;
-//   removeIngredientDragGhost();
-
-//   recipeFeedbackEl.textContent =
-//     "Stlač Štart a potom presúvaj suroviny do misy.";
-//   startRecipeButton.textContent = "Štart";
-//   startRecipeButton.disabled = false;
-
-//   ingredientBank.replaceChildren();
-//   shuffle(ingredientItems).forEach((ingredient) => {
-//     ingredientBank.appendChild(createIngredientItem(ingredient));
-//   });
-
-//   renderRecipe();
-
-//   if (winDialog.open) {
-//     winDialog.close();
-//   }
-// }
-
 function startRecipeGame() {
   if (recipeRunning || recipeWaiting) return;
 
@@ -585,7 +560,6 @@ function handleIngredientPointerUp(event) {
   ingredientPointerMoved = false;
 }
 
-// 10. Event Listeners (Priradenie udalostí pre UI komponenty)
 startRecipeButton.addEventListener("click", startRecipeGame);
 resetRecipeButton.addEventListener("click", resetRecipeGame);
 
@@ -610,11 +584,9 @@ mixingBowl.addEventListener("click", () => {
   }
 });
 
-// Globálne sledovanie pohybu pre simuláciu ťahania elementov
 document.addEventListener("pointermove", handleIngredientPointerMove);
 document.addEventListener("pointerup", handleIngredientPointerUp);
 
-// Inicializácia hry pri načítaní súboru
 resetRecipeGame();
 
 document

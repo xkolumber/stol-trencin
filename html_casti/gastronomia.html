@@ -113,139 +113,129 @@
           </div>
         </div>
         <div id="text3Page" class="page">
-          <div class="text-container">
-            <section id="ingredients-game" class="game-panel">
-              <section class="gastronomia_top" aria-label="Zadanie procesu">
-                <div class="gastronomia_picture_text">
-                  <img class="" src="assets/images/misa.svg" />
-                  <p class="strong_p">Uvar tradičné slovenské perky</p>
-                </div>
+          <section id="ingredients-game" class="game-panel">
+            <section class="gastronomia_top" aria-label="Zadanie procesu">
+              <div class="gastronomia_picture_text">
+                <img class="" src="assets/images/misa.svg" />
+                <p class="strong_p">Uvar tradičné slovenské perky</p>
+              </div>
 
-                <div class="recipe-status" aria-label="Stav receptu">
-                  <span id="recipe-round">1/3</span>
-                  <strong id="recipe-timer">12.0 </strong>
+              <div class="recipe-status" aria-label="Stav receptu">
+                <span id="recipe-round">1/3</span>
+                <strong id="recipe-timer">12.0 </strong>
+              </div>
+            </section>
+
+            <section class="recipe-board" aria-label="Skladanie receptu">
+              <section class="recipe-card" aria-label="Aktualny recept">
+                <p class="column-title">Recept</p>
+                <h3 id="recipe-name">Zemiakove cesto</h3>
+                <p id="recipe-instruction" class="recipe-instruction"></p>
+                <div
+                  id="recipe-targets"
+                  class="recipe-targets"
+                  aria-label="Potrebne ingrediencie"
+                ></div>
+                <div class="timing-track" aria-label="Cas do konca kola">
+                  <span id="timing-fill"></span>
                 </div>
+                <p id="recipe-feedback" class="feedback" aria-live="polite"></p>
               </section>
 
-              <section class="recipe-board" aria-label="Skladanie receptu">
-                <section class="recipe-card" aria-label="Aktualny recept">
-                  <p class="column-title">Recept</p>
-                  <h3 id="recipe-name">Zemiakove cesto</h3>
-                  <p id="recipe-instruction" class="recipe-instruction"></p>
+              <section class="mixing-zone" aria-label="Miska na miesanie">
+                <p class="column-title">Misa</p>
+                <div id="mixing-bowl" class="mixing-bowl">
+                  <span class="steam steam-one" aria-hidden="true"></span>
+                  <span class="steam steam-two" aria-hidden="true"></span>
+                  <span class="steam steam-three" aria-hidden="true"></span>
+                  <span class="bubble bubble-one" aria-hidden="true"></span>
+                  <span class="bubble bubble-two" aria-hidden="true"></span>
+                  <span class="bubble bubble-three" aria-hidden="true"></span>
+                  <span class="cooking-surface" aria-hidden="true"></span>
+                  <span class="stir-line stir-one" aria-hidden="true"></span>
+                  <span class="stir-line stir-two" aria-hidden="true"></span>
+
                   <div
-                    id="recipe-targets"
-                    class="recipe-targets"
-                    aria-label="Potrebne ingrediencie"
-                  ></div>
-                  <div class="timing-track" aria-label="Cas do konca kola">
-                    <span id="timing-fill"></span>
+                    id="stage-product"
+                    class="stage-product stage-board"
+                    aria-hidden="true"
+                  >
+                    <img
+                      class="scene-image scene-board"
+                      src="assets/ingredients/cutting-board.svg"
+                      alt=""
+                    />
+                    <img
+                      class="scene-image scene-pot"
+                      src="assets/ingredients/cooking-pot.svg"
+                      alt=""
+                    />
+                    <img
+                      class="scene-image scene-plate"
+                      src="assets/ingredients/plate-empty.svg"
+                      alt=""
+                    />
+
+                    <span class="rolling-pin"></span>
+                    <span class="knife"></span>
+                    <span class="dough-shape"></span>
+                    <span class="dough-piece piece-one"></span>
+                    <span class="dough-piece piece-two"></span>
+                    <span class="dough-piece piece-three"></span>
+                    <span class="jam-dot jam-one"></span>
+                    <span class="jam-dot jam-two"></span>
+                    <span class="jam-dot jam-three"></span>
+                    <span class="press press-one"></span>
+                    <span class="press press-two"></span>
+                    <span class="press press-three"></span>
+                    <span class="perky-piece perky-one"></span>
+                    <span class="perky-piece perky-two"></span>
+                    <span class="perky-piece perky-three"></span>
+                    <span class="strainer"></span>
+                    <span class="sprinkle sprinkle-one"></span>
+                    <span class="sprinkle sprinkle-two"></span>
+                    <span class="sprinkle sprinkle-three"></span>
                   </div>
-                  <p
-                    id="recipe-feedback"
-                    class="feedback"
+
+                  <span
+                    id="stage-label"
+                    class="stage-label"
                     aria-live="polite"
-                  ></p>
-                </section>
-
-                <section class="mixing-zone" aria-label="Miska na miesanie">
-                  <p class="column-title">Misa</p>
-                  <div id="mixing-bowl" class="mixing-bowl">
-                    <span class="steam steam-one" aria-hidden="true"></span>
-                    <span class="steam steam-two" aria-hidden="true"></span>
-                    <span class="steam steam-three" aria-hidden="true"></span>
-                    <span class="bubble bubble-one" aria-hidden="true"></span>
-                    <span class="bubble bubble-two" aria-hidden="true"></span>
-                    <span class="bubble bubble-three" aria-hidden="true"></span>
-                    <span class="cooking-surface" aria-hidden="true"></span>
-                    <span class="stir-line stir-one" aria-hidden="true"></span>
-                    <span class="stir-line stir-two" aria-hidden="true"></span>
-
-                    <div
-                      id="stage-product"
-                      class="stage-product stage-board"
-                      aria-hidden="true"
-                    >
-                      <img
-                        class="scene-image scene-board"
-                        src="assets/ingredients/cutting-board.svg"
-                        alt=""
-                      />
-                      <img
-                        class="scene-image scene-pot"
-                        src="assets/ingredients/cooking-pot.svg"
-                        alt=""
-                      />
-                      <img
-                        class="scene-image scene-plate"
-                        src="assets/ingredients/plate-empty.svg"
-                        alt=""
-                      />
-
-                      <span class="rolling-pin"></span>
-                      <span class="knife"></span>
-                      <span class="dough-shape"></span>
-                      <span class="dough-piece piece-one"></span>
-                      <span class="dough-piece piece-two"></span>
-                      <span class="dough-piece piece-three"></span>
-                      <span class="jam-dot jam-one"></span>
-                      <span class="jam-dot jam-two"></span>
-                      <span class="jam-dot jam-three"></span>
-                      <span class="press press-one"></span>
-                      <span class="press press-two"></span>
-                      <span class="press press-three"></span>
-                      <span class="perky-piece perky-one"></span>
-                      <span class="perky-piece perky-two"></span>
-                      <span class="perky-piece perky-three"></span>
-                      <span class="strainer"></span>
-                      <span class="sprinkle sprinkle-one"></span>
-                      <span class="sprinkle sprinkle-two"></span>
-                      <span class="sprinkle sprinkle-three"></span>
-                    </div>
-
-                    <span
-                      id="stage-label"
-                      class="stage-label"
-                      aria-live="polite"
-                    ></span>
-                    <span class="bowl-rim"></span>
-                    <span id="bowl-placeholder" class="bowl-placeholder"
-                      >Pusti surovinu sem</span
-                    >
-                    <div id="bowl-items" class="bowl-items"></div>
-                  </div>
-                </section>
-                <section class="ingredients-shelf" aria-label="Ingrediencie">
-                  <p class="column-title">Suroviny</p>
-                  <div id="ingredient-bank" class="ingredient-bank"></div>
-                </section>
+                  ></span>
+                  <span class="bowl-rim"></span>
+                  <span id="bowl-placeholder" class="bowl-placeholder"
+                    >Pusti surovinu sem</span
+                  >
+                  <div id="bowl-items" class="bowl-items"></div>
+                </div>
               </section>
-
-              <section
-                class="process-actions-gastro"
-                aria-label="Ovladanie receptu"
-              >
-                <button
-                  id="start-recipe"
-                  class="secondary-button"
-                  type="button"
-                >
-                  Štart
-                </button>
-                <button id="reset-recipe" class="primary-button" type="button">
-                  Reset
-                </button>
+              <section class="ingredients-shelf" aria-label="Ingrediencie">
+                <p class="column-title">Suroviny</p>
+                <div id="ingredient-bank" class="ingredient-bank"></div>
               </section>
             </section>
 
-            <div id="recipe-finished" class="recipe-finished hidden">
-              <img id="dialog-image" src="../images/gastronomia/perky.png" />
-              <h2 id="dialog-title">Perfektné!</h2>
-              <p id="result">Už vieš pripraviť perky ako pravý šéfkuchár!</p>
-
-              <button id="play-again" class="secondary-button" type="button">
-                Hrať znova
+            <section
+              class="process-actions-gastro"
+              aria-label="Ovladanie receptu"
+            >
+              <button id="start-recipe" class="secondary-button" type="button">
+                Štart
               </button>
-            </div>
+              <button id="reset-recipe" class="primary-button" type="button">
+                Reset
+              </button>
+            </section>
+          </section>
+
+          <div id="recipe-finished" class="recipe-finished hidden">
+            <img id="dialog-image" src="../images/gastronomia/perky.png" />
+            <h2 id="dialog-title">Perfektné!</h2>
+            <p id="result">Už vieš pripraviť perky ako pravý šéfkuchár!</p>
+
+            <button id="play-again" class="secondary-button" type="button">
+              Hrať znova
+            </button>
           </div>
         </div>
       </div>
